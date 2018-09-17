@@ -16,6 +16,9 @@
 		2396A637214F97BF00BDB89A /* SearchGithubMVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396A636214F97BF00BDB89A /* SearchGithubMVCUITests.swift */; };
 		2396A646214F99C400BDB89A /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396A645214F99C400BDB89A /* APIKit.framework */; };
 		2396A648214F99DF00BDB89A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396A647214F99DF00BDB89A /* Result.framework */; };
+		2396A64B214FA24100BDB89A /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396A64A214FA24100BDB89A /* GitHubRequest.swift */; };
+		2396A64D214FA3FB00BDB89A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396A64C214FA3FB00BDB89A /* GitHubAPI.swift */; };
+		2396A64F214FA76500BDB89A /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396A64E214FA76500BDB89A /* Himotoki.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		2396A638214F97BF00BDB89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2396A645214F99C400BDB89A /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		2396A647214F99DF00BDB89A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		2396A64A214FA24100BDB89A /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
+		2396A64C214FA3FB00BDB89A /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		2396A64E214FA76500BDB89A /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 			files = (
 				2396A646214F99C400BDB89A /* APIKit.framework in Frameworks */,
 				2396A648214F99DF00BDB89A /* Result.framework in Frameworks */,
+				2396A64F214FA76500BDB89A /* Himotoki.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				2396A616214F97BD00BDB89A /* AppDelegate.swift */,
+				2396A64A214FA24100BDB89A /* GitHubRequest.swift */,
+				2396A64C214FA3FB00BDB89A /* GitHubAPI.swift */,
 				2396A618214F97BD00BDB89A /* ViewController.swift */,
 				2396A61A214F97BD00BDB89A /* Main.storyboard */,
 				2396A61D214F97BF00BDB89A /* Assets.xcassets */,
@@ -135,6 +144,7 @@
 		2396A644214F99C400BDB89A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2396A64E214FA76500BDB89A /* Himotoki.framework */,
 				2396A647214F99DF00BDB89A /* Result.framework */,
 				2396A645214F99C400BDB89A /* APIKit.framework */,
 			);
@@ -277,10 +287,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Himotoki.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/APIKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Himotoki.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -294,7 +306,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2396A619214F97BD00BDB89A /* ViewController.swift in Sources */,
+				2396A64B214FA24100BDB89A /* GitHubRequest.swift in Sources */,
 				2396A617214F97BD00BDB89A /* AppDelegate.swift in Sources */,
+				2396A64D214FA3FB00BDB89A /* GitHubAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
