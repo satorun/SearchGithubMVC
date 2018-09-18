@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2305C6B021514FB80033FBC2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305C6AF21514FB80033FBC2 /* Repository.swift */; };
+		2305C6B2215155A50033FBC2 /* Repository+Himotoki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305C6B1215155A50033FBC2 /* Repository+Himotoki.swift */; };
 		2396A617214F97BD00BDB89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396A616214F97BD00BDB89A /* AppDelegate.swift */; };
 		2396A619214F97BD00BDB89A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396A618214F97BD00BDB89A /* ViewController.swift */; };
 		2396A61C214F97BD00BDB89A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2396A61A214F97BD00BDB89A /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2305C6AF21514FB80033FBC2 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		2305C6B1215155A50033FBC2 /* Repository+Himotoki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Himotoki.swift"; sourceTree = "<group>"; };
 		2396A613214F97BD00BDB89A /* SearchGithubMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchGithubMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2396A616214F97BD00BDB89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2396A618214F97BD00BDB89A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2305C6AE21514F790033FBC2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2305C6AF21514FB80033FBC2 /* Repository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2305C6B3215155B10033FBC2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2305C6B1215155A50033FBC2 /* Repository+Himotoki.swift */,
+				2396A64A214FA24100BDB89A /* GitHubRequest.swift */,
+				2396A64C214FA3FB00BDB89A /* GitHubAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		2396A60A214F97BD00BDB89A = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +133,9 @@
 		2396A615214F97BD00BDB89A /* SearchGithubMVC */ = {
 			isa = PBXGroup;
 			children = (
+				2305C6AE21514F790033FBC2 /* Domain */,
+				2305C6B3215155B10033FBC2 /* Network */,
 				2396A616214F97BD00BDB89A /* AppDelegate.swift */,
-				2396A64A214FA24100BDB89A /* GitHubRequest.swift */,
-				2396A64C214FA3FB00BDB89A /* GitHubAPI.swift */,
 				2396A618214F97BD00BDB89A /* ViewController.swift */,
 				2396A61A214F97BD00BDB89A /* Main.storyboard */,
 				2396A61D214F97BF00BDB89A /* Assets.xcassets */,
@@ -306,7 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2396A619214F97BD00BDB89A /* ViewController.swift in Sources */,
+				2305C6B2215155A50033FBC2 /* Repository+Himotoki.swift in Sources */,
 				2396A64B214FA24100BDB89A /* GitHubRequest.swift in Sources */,
+				2305C6B021514FB80033FBC2 /* Repository.swift in Sources */,
 				2396A617214F97BD00BDB89A /* AppDelegate.swift in Sources */,
 				2396A64D214FA3FB00BDB89A /* GitHubAPI.swift in Sources */,
 			);

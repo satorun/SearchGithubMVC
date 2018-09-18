@@ -29,24 +29,3 @@ final class GitHubAPI {
     }
 }
 
-struct Repository: Himotoki.Decodable {
-    let id: Int64
-    let name: String
-    
-    static func decode(_ e: Extractor) throws -> Repository {
-        return try Repository(
-            id: e.value("id"),
-            name: e.value("name"))
-    }
-}
-
-struct SearchResponse<Item: Himotoki.Decodable>: Himotoki.Decodable {
-    let items: [Item]
-    let totalCount: Int
-    
-    static func decode(_ e: Extractor) throws -> SearchResponse {
-        return try SearchResponse(
-            items: e.array("items"),
-            totalCount: e.value("total_count"))
-    }
-}
