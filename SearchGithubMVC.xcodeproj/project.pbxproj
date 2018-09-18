@@ -109,6 +109,21 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		2305C6B421515B8A0033FBC2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2396A618214F97BD00BDB89A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2305C6B521515BB20033FBC2 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
 		2396A60A214F97BD00BDB89A = {
 			isa = PBXGroup;
 			children = (
@@ -133,10 +148,11 @@
 		2396A615214F97BD00BDB89A /* SearchGithubMVC */ = {
 			isa = PBXGroup;
 			children = (
-				2305C6AE21514F790033FBC2 /* Domain */,
 				2305C6B3215155B10033FBC2 /* Network */,
+				2305C6AE21514F790033FBC2 /* Domain */,
+				2305C6B421515B8A0033FBC2 /* Controller */,
+				2305C6B521515BB20033FBC2 /* UIComponent */,
 				2396A616214F97BD00BDB89A /* AppDelegate.swift */,
-				2396A618214F97BD00BDB89A /* ViewController.swift */,
 				2396A61A214F97BD00BDB89A /* Main.storyboard */,
 				2396A61D214F97BF00BDB89A /* Assets.xcassets */,
 				2396A61F214F97BF00BDB89A /* LaunchScreen.storyboard */,
