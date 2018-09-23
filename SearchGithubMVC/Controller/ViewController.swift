@@ -19,10 +19,18 @@ class ViewController: UIViewController {
             tableView.delegate = self
         }
     }
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
     
     private var service: GitHubService!
+    
     typealias ServiceResult = Result<SearchResponse<Repository>, GitHubServiceError>
     var result: ServiceResult?
+    
+    var loading = false
     
     func inject(service: GitHubService) {
         self.service = service
@@ -32,11 +40,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         inject(service: GitHubServiceImpl())
-        search(query: "swift")
     }
 
     func search(query: String) {
-        service.search(query: "Swift") { [weak self] result in self?.updateView(result: result) }
+        service.search(query: query) { [weak self] result in self?.updateView(result: result) }
     }
     
     func updateView(result: ServiceResult) {
@@ -64,5 +71,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         cell.textLabel?.text = items[indexPath.item].name
         return cell
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        search(query: searchText)
     }
 }

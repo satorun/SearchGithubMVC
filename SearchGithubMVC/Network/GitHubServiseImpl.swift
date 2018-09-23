@@ -13,7 +13,9 @@ import APIKit
 
 class GitHubServiceImpl: GitHubService {
     func search(query: String, completion:@escaping (Result<SearchResponse<Repository>, GitHubServiceError>) -> ()) {
-        Session.send(GitHubAPI.SearchRepositoriesRequest(query: query)) { result in
+        typealias Request = GitHubAPI.SearchRepositoriesRequest
+        Session.cancelRequests(with: Request.self)
+        Session.send(Request(query: query)) { result in
             switch result {
             case .success(let response):
                 if response.items.count <= 0 {
