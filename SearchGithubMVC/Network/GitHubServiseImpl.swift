@@ -23,7 +23,8 @@ class GitHubServiceImpl: GitHubService {
                 } else {
                     completion(Result.success(response))
                 }
-            case .failure:
+            case .failure(let error):
+                print(error)
                 completion(.failure(.fail))
             }
         }

@@ -11,8 +11,16 @@ import Result
 
 
 struct Repository {
+    struct Owner {
+        var login: String
+    }
+    
     var id: Int64
     var name: String
+    var fullName: String
+    var owner: Owner
+    var htmlUrl: URL
+    var language: String?
 }
 
 struct SearchResponse<I>: Response {

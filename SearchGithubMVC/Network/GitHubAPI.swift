@@ -8,6 +8,13 @@
 
 import APIKit
 
+protocol GitHubRequest: Request {}
+
+extension GitHubRequest {
+    var baseURL: URL {
+        return URL(string: "https://api.github.com")!
+    }
+}
 
 final class GitHubAPI {
     struct SearchRepositoriesRequest: GitHubRequest {

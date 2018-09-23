@@ -47,6 +47,7 @@ class ViewController: UIViewController {
     }
     
     func updateView(result: ServiceResult) {
+        print(result)
         self.result = result
         tableView.reloadData()
     }
