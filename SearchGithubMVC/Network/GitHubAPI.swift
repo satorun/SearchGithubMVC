@@ -7,7 +7,7 @@
 //
 
 import APIKit
-import Himotoki
+
 
 final class GitHubAPI {
     struct SearchRepositoriesRequest: GitHubRequest {

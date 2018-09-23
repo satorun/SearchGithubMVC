@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import Result
+
 
 struct Repository {
-    let id: Int64
-    let name: String
+    var id: Int64
+    var name: String
 }
 
-struct SearchResponse<Item> {
-    let items: [Item]
-    let totalCount: Int
+struct SearchResponse<I>: Response {
+    typealias Item = I
+
+    var items: [I]
+    var totalCount: Int
 }

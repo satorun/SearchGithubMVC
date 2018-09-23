@@ -8,6 +8,8 @@
 
 import UIKit
 import APIKit
+import Result
+
 
 class ViewController: UIViewController {
     
@@ -18,46 +20,49 @@ class ViewController: UIViewController {
         }
     }
     
-    var response: SearchResponse<Repository>?
+    private var service: GitHubService!
+    typealias ServiceResult = Result<SearchResponse<Repository>, GitHubServiceError>
+    var result: ServiceResult?
+    
+    func inject(service: GitHubService) {
+        self.service = service
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        inject(service: GitHubServiceImpl())
         search(query: "swift")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func search(query: String) {
-        let request = GitHubAPI.SearchRepositoriesRequest(query: query)
-        Session.send(request) { [weak self] result in
-            switch result {
-            case .success(let response):
-                self?.updateView(data: response)
-            case .failure(let error):
-                print("\(error)")
-            }
-        }
+        service.search(query: "Swift") { [weak self] result in self?.updateView(result: result) }
     }
     
-    func updateView(data: SearchResponse<Repository>) {
-        response = data
+    func updateView(result: ServiceResult) {
+        self.result = result
         tableView.reloadData()
     }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return response?.items.count ?? 0
+        guard let result = result else { return 0 }
+       switch result {
+        case .success(let response):
+            return response.items.count
+        case .failure(let error):
+            switch error {
+            case .fail, .nodata:
+                return 0
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let items = result?.items else { fatalError() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-        cell.textLabel?.text = response?.items[indexPath.item].name
+        cell.textLabel?.text = items[indexPath.item].name
         return cell
     }
 }
-
