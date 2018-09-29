@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         inject(service: GitHubServiceImpl())
+        RepositoryCell.register(to: tableView)
     }
 
     func search(query: String) {
@@ -69,8 +70,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let items = result?.items else { fatalError() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-        cell.textLabel?.text = items[indexPath.item].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryCell.identifier) as! RepositoryCell
+        cell.set(repository: items[indexPath.item])
         return cell
     }
 }
